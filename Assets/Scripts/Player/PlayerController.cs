@@ -1,12 +1,17 @@
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class PlayerController : MonoBehaviour
 {
-    // Variables
-    public float speed = 10f;
-    Rigidbody2D rb;
+    #region Variables
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // Movement
+    public float moveSpeed = 10f;           // Player movement speed
+    Rigidbody2D rb;                         // Reference to the player's Rigidbody2D
+
+    #endregion
+
+    // Start is called once at creation
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -16,7 +21,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         float hValue = Input.GetAxis("Horizontal");
-        rb.linearVelocityX = hValue * speed;
-
+        rb.linearVelocityX = hValue * moveSpeed;
     }
+
 }
