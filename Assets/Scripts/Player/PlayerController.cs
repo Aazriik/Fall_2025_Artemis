@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     // Component Refs
     Rigidbody2D rb;                             // Reference to the player's Rigidbody2D
     Collider2D col;                             // Reference to the player's Collider2D
+    SpriteRenderer sr;                          // Reference to the player's SpriteRenderer
+    Animator anim;                              // Reference to the player's Animator
 
     // Layer Masks
     private LayerMask groundLayer;              // Layer mask for ground detection
@@ -29,6 +31,11 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         // Get the Collider2D component
         col = GetComponent<Collider2D>();
+        // Get the SpriteRenderer component
+        sr = GetComponent<SpriteRenderer>();
+        // Get the Animator component
+        anim = GetComponent<Animator>();
+
         // Set the ground layer mask
         groundLayer = LayerMask.GetMask("Ground");
     }
@@ -41,6 +48,10 @@ public class PlayerController : MonoBehaviour
 
         // Player Movement Horizontal
         float hValue = Input.GetAxis("Horizontal");
+
+        SpriteFlip(hValue);
+
+        // Set Rigidbody velocity for horizontal movement
         rb.linearVelocityX = hValue * moveSpeed;
 
         // Player Jump
@@ -48,6 +59,16 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
+
+        // Update Animator parameters
+        anim.SetFloat("hValue", Mathf.Abs(hValue));
+        anim.SetBool("isGrounded", isGrounded);
     }
 
+    private void SpriteFlip (float hValue)
+    {
+        // Flip sprite based on movement direction - hValue is negative for left, positive for right
+        if (hValue != 0)
+            sr.flipX = (hValue < 0);
+    }
 }

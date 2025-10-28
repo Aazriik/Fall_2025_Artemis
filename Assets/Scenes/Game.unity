@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 127991931}
   - component: {fileID: 127991932}
   m_Layer: 3
-  m_Name: Ground11
+  m_Name: LevelBoundary2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2076,9 +2076,10 @@ GameObject:
   - component: {fileID: 1102201356}
   - component: {fileID: 1102201352}
   - component: {fileID: 1102201355}
+  - component: {fileID: 1102201357}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2222,7 +2223,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.75, y: 1.4}
+    oldSize: {x: 0.8, y: 1.55}
     newSize: {x: 0.75, y: 1.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2245,7 +2246,28 @@ MonoBehaviour:
   moveSpeed: 10
   jumpForce: 7
   groundCheckRadius: 0.2
-  isGrounded: 0
+--- !u!95 &1102201357
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102201351}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 367693d11c9317843a53b832c6b51d3a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1178506030
 GameObject:
   m_ObjectHideFlags: 0
@@ -2257,7 +2279,7 @@ GameObject:
   - component: {fileID: 1178506031}
   - component: {fileID: 1178506032}
   m_Layer: 3
-  m_Name: Ground4
+  m_Name: LevelBoundary1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2607,18 +2629,18 @@ Transform:
   - {fileID: 1796619339}
   - {fileID: 875295557}
   - {fileID: 384472768}
-  - {fileID: 1178506031}
   - {fileID: 1922991891}
   - {fileID: 242204566}
   - {fileID: 663679328}
   - {fileID: 681805538}
   - {fileID: 782910719}
   - {fileID: 1670994474}
-  - {fileID: 127991931}
   - {fileID: 333777106}
   - {fileID: 663044321}
   - {fileID: 1831861849}
   - {fileID: 884669269}
+  - {fileID: 1178506031}
+  - {fileID: 127991931}
   m_Father: {fileID: 289882218}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1796619338
