@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 32698775}
   - component: {fileID: 32698776}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pipe6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,8 +207,8 @@ GameObject:
   m_Component:
   - component: {fileID: 127991931}
   - component: {fileID: 127991932}
-  m_Layer: 0
-  m_Name: Ground11
+  m_Layer: 3
+  m_Name: LevelBoundary2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -285,7 +285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 202910921}
   - component: {fileID: 202910922}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pipe2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +363,7 @@ GameObject:
   m_Component:
   - component: {fileID: 204283442}
   - component: {fileID: 204283443}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pipe3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -441,7 +441,7 @@ GameObject:
   m_Component:
   - component: {fileID: 242204566}
   - component: {fileID: 242204567}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -643,7 +643,7 @@ GameObject:
   m_Component:
   - component: {fileID: 333777106}
   - component: {fileID: 333777107}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -722,7 +722,7 @@ GameObject:
   - component: {fileID: 357424370}
   - component: {fileID: 357424372}
   - component: {fileID: 357424371}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: JumpThruEdge5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -816,7 +816,7 @@ GameObject:
   m_Component:
   - component: {fileID: 384472768}
   - component: {fileID: 384472769}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -984,7 +984,7 @@ GameObject:
   m_Component:
   - component: {fileID: 469377871}
   - component: {fileID: 469377872}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pipe4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1320,7 +1320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 663044321}
   - component: {fileID: 663044322}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1398,7 +1398,7 @@ GameObject:
   m_Component:
   - component: {fileID: 663679328}
   - component: {fileID: 663679329}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1476,7 +1476,7 @@ GameObject:
   m_Component:
   - component: {fileID: 681805538}
   - component: {fileID: 681805539}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1555,7 +1555,7 @@ GameObject:
   - component: {fileID: 741049049}
   - component: {fileID: 741049051}
   - component: {fileID: 741049050}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: JumpThruEdge3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1571,7 +1571,7 @@ Transform:
   m_GameObject: {fileID: 741049048}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 47.76, y: -3.06, z: 0}
+  m_LocalPosition: {x: 47, y: -3.052, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1633,8 +1633,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -3.8861113, y: 0.0052371025}
-  - {x: 3.69527, y: 0.0035290718}
+  - {x: -3.1806517, y: 0.008020878}
+  - {x: 4.564983, y: 0.006312847}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -1649,7 +1649,7 @@ GameObject:
   m_Component:
   - component: {fileID: 782910719}
   - component: {fileID: 782910720}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1728,7 +1728,7 @@ GameObject:
   - component: {fileID: 820370118}
   - component: {fileID: 820370120}
   - component: {fileID: 820370119}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: JumpThruEdge6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1823,7 +1823,7 @@ GameObject:
   - component: {fileID: 839272043}
   - component: {fileID: 839272045}
   - component: {fileID: 839272044}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: JumpThruEdge2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1839,7 +1839,7 @@ Transform:
   m_GameObject: {fileID: 839272042}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.16, y: -2.253, z: 0}
+  m_LocalPosition: {x: 18, y: -2.253, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1901,8 +1901,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -3.8861113, y: 0.0052371025}
-  - {x: 3.69527, y: 0.0035290718}
+  - {x: -3.8327894, y: 0.007142067}
+  - {x: 3.9634585, y: 0.0061278343}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -1917,7 +1917,7 @@ GameObject:
   m_Component:
   - component: {fileID: 875295557}
   - component: {fileID: 875295558}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1995,7 +1995,7 @@ GameObject:
   m_Component:
   - component: {fileID: 884669269}
   - component: {fileID: 884669270}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2073,12 +2073,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1102201354}
   - component: {fileID: 1102201353}
+  - component: {fileID: 1102201356}
   - component: {fileID: 1102201352}
   - component: {fileID: 1102201355}
-  - component: {fileID: 1102201356}
+  - component: {fileID: 1102201357}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2109,7 +2110,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &1102201353
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2222,7 +2223,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.75, y: 1.4}
+    oldSize: {x: 0.8, y: 1.55}
     newSize: {x: 0.75, y: 1.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2242,7 +2243,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403ee164e27f64947bc0808c3feec58f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  speed: 10
+  moveSpeed: 10
+  jumpForce: 7
+  groundCheckRadius: 0.2
+--- !u!95 &1102201357
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102201351}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 367693d11c9317843a53b832c6b51d3a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1178506030
 GameObject:
   m_ObjectHideFlags: 0
@@ -2253,8 +2278,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1178506031}
   - component: {fileID: 1178506032}
-  m_Layer: 0
-  m_Name: Ground4
+  m_Layer: 3
+  m_Name: LevelBoundary1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2332,7 +2357,7 @@ GameObject:
   - component: {fileID: 1238875792}
   - component: {fileID: 1238875794}
   - component: {fileID: 1238875793}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: JumpThruEdge1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2348,7 +2373,7 @@ Transform:
   m_GameObject: {fileID: 1238875791}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.089996, y: -3.85, z: 0}
+  m_LocalPosition: {x: 13, y: -3.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2410,8 +2435,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -5.415219, y: 0.0052371025}
-  - {x: 4.575299, y: 0.0035290718}
+  - {x: -4.429829, y: 0.0052371025}
+  - {x: 5.764508, y: 0.005490303}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -2426,7 +2451,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1253212101}
   - component: {fileID: 1253212102}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pipe5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2504,7 +2529,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1670994474}
   - component: {fileID: 1670994475}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2604,18 +2629,18 @@ Transform:
   - {fileID: 1796619339}
   - {fileID: 875295557}
   - {fileID: 384472768}
-  - {fileID: 1178506031}
   - {fileID: 1922991891}
   - {fileID: 242204566}
   - {fileID: 663679328}
   - {fileID: 681805538}
   - {fileID: 782910719}
   - {fileID: 1670994474}
-  - {fileID: 127991931}
   - {fileID: 333777106}
   - {fileID: 663044321}
   - {fileID: 1831861849}
   - {fileID: 884669269}
+  - {fileID: 1178506031}
+  - {fileID: 127991931}
   m_Father: {fileID: 289882218}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1796619338
@@ -2628,7 +2653,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1796619339}
   - component: {fileID: 1796619340}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2706,7 +2731,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1831861849}
   - component: {fileID: 1831861850}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2874,7 +2899,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1922991891}
   - component: {fileID: 1922991892}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2953,7 +2978,7 @@ GameObject:
   - component: {fileID: 1964507994}
   - component: {fileID: 1964507996}
   - component: {fileID: 1964507995}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: JumpThruEdge4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3048,7 +3073,7 @@ GameObject:
   - component: {fileID: 1966252266}
   - component: {fileID: 1966252268}
   - component: {fileID: 1966252267}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: JumpThruEdge8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3142,7 +3167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2026887171}
   - component: {fileID: 2026887172}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pipe1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3260,7 +3285,7 @@ GameObject:
   - component: {fileID: 2139413960}
   - component: {fileID: 2139413962}
   - component: {fileID: 2139413961}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: JumpThruEdge7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
