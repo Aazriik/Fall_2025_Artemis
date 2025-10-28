@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 7f;                // Player jump force
     public float groundCheckRadius = 0.2f;      // Radius for ground check
     private bool isGrounded = false;            // Is the player grounded
+    private bool isCrouching = false;           // Is the player crouching
 
     // Component Refs
     Rigidbody2D rb;                             // Reference to the player's Rigidbody2D
@@ -21,6 +22,8 @@ public class PlayerController : MonoBehaviour
 
     // Position for ground check
     private Vector2 groundCheckPos => new Vector2(col.bounds.center.x, col.bounds.min.y);
+
+    private float xVelocitySlowdown = 0;
 
     #endregion
 
@@ -38,6 +41,9 @@ public class PlayerController : MonoBehaviour
 
         // Set the ground layer mask
         groundLayer = LayerMask.GetMask("Ground");
+
+        // Ensure Crouch parameter is false at start
+        //isCrouching = false;
     }
 
     // Update is called once per frame
@@ -60,9 +66,27 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
 
+        // Player Crouch
+        isCrouching = Input.GetButton("Fire1");
+        if (isCrouching == true && isGrounded)
+        {
+            // Reduce player speed to zero over 1 second when crouching
+            xVelocitySlowdown += Time.deltaTime;
+            Mathf.Clamp(xVelocitySlowdown, 0, 1f);
+            rb.linearVelocityX = Mathf.Lerp(rb.linearVelocityX, 0, xVelocitySlowdown);
+        }
+        else
+        {
+            // Normal movement speed when not crouching
+            rb.linearVelocityX = hValue * moveSpeed;
+            xVelocitySlowdown = 0;
+        }
+
         // Update Animator parameters
         anim.SetFloat("hValue", Mathf.Abs(hValue));
         anim.SetBool("isGrounded", isGrounded);
+        // Inverted Crouch logic for Animator parameter
+        anim.SetBool("isCrouching", !isCrouching);
     }
 
     private void SpriteFlip (float hValue)
