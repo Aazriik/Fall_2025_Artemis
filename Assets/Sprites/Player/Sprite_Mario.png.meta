@@ -1353,7 +1353,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_47
+      name: Mario_Fire1
       rect:
         serializedVersion: 2
         x: 61
@@ -1375,7 +1375,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_48
+      name: Mario_Fire2
       rect:
         serializedVersion: 2
         x: 79
@@ -1397,7 +1397,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_49
+      name: Mario_Fire3
       rect:
         serializedVersion: 2
         x: 97
@@ -1686,6 +1686,9 @@ TextureImporter:
       Mario_FaceUs_Climb2: 8706566674536967793
       Mario_FaceUs_Climb_Idle: 7980998295276442
       Mario_Fall: 3387244394707617170
+      Mario_Fire1: 3302078408146908689
+      Mario_Fire2: -4040994371160570336
+      Mario_Fire3: 2070263079612885921
       Mario_Fireball_Idle: -5511660270334715914
       Mario_Idle: 4638078165498462608
       Mario_Jump: -5672653749854861051
@@ -1723,9 +1726,6 @@ TextureImporter:
       Sprite_Mario_44: 1329661449039804243
       Sprite_Mario_45: 3354623957607304124
       Sprite_Mario_46: 7368133104323931243
-      Sprite_Mario_47: 3302078408146908689
-      Sprite_Mario_48: -4040994371160570336
-      Sprite_Mario_49: 2070263079612885921
       Sprite_Mario_50: -5021473000565013323
       Sprite_Mario_51: -3917910848853407703
       Sprite_Mario_52: 2024578721505582386
