@@ -225,7 +225,7 @@ TextureImporter:
       name: Coin
       rect:
         serializedVersion: 2
-        x: 64
+        x: 65
         y: 139
         width: 8
         height: 16
