@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2291611642446840356}
   - component: {fileID: 6369958406970060665}
   - component: {fileID: 381294873175733125}
-  - component: {fileID: 5999255259829555881}
+  - component: {fileID: -8068101238149187836}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -129,7 +129,7 @@ CapsuleCollider2D:
   m_Offset: {x: -0.038440704, y: 0}
   m_Size: {x: 0.38462067, y: 0.8}
   m_Direction: 0
---- !u!114 &5999255259829555881
+--- !u!114 &-8068101238149187836
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,6 +138,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7080150262560374432}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad89d1437f9721c409c60d96d040a557, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bd426737186949448fe8c79049afe02, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Coin
+  m_EditorClassIdentifier: Assembly-CSharp::SimplePickups
+  pickupType: 2
