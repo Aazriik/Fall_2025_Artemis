@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
         //update animator parameters
         anim.SetFloat("hValue", Mathf.Abs(hValue));
         anim.SetBool("isGrounded", isGrounded);
-}
+    }
 
     private void OnValidate() => groundCheck?.UpdateCheckRadius(groundCheckRadius);
 

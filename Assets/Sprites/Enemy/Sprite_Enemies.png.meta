@@ -4378,10 +4378,10 @@ TextureImporter:
       name: Sprite_Enemies_99
       rect:
         serializedVersion: 2
-        x: 409
-        y: 536
-        width: 24
-        height: 26
+        x: 417
+        y: 546
+        width: 16
+        height: 16
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -9897,7 +9897,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Enemies_350
+      name: Fire_1
       rect:
         serializedVersion: 2
         x: 656
@@ -9919,7 +9919,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Enemies_351
+      name: Fire_2
       rect:
         serializedVersion: 2
         x: 674
@@ -9941,7 +9941,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Enemies_352
+      name: Fire_3
       rect:
         serializedVersion: 2
         x: 701
@@ -9963,7 +9963,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Enemies_353
+      name: Fire_4
       rect:
         serializedVersion: 2
         x: 740
@@ -10249,7 +10249,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Enemies_366
+      name: Fire_5
       rect:
         serializedVersion: 2
         x: 740
@@ -10403,7 +10403,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Enemies_373
+      name: Dino_Idle
       rect:
         serializedVersion: 2
         x: 482
@@ -10425,7 +10425,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Enemies_374
+      name: Dino_Squished
       rect:
         serializedVersion: 2
         x: 502
@@ -10447,7 +10447,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Enemies_375
+      name: Dino_Fire
       rect:
         serializedVersion: 2
         x: 520
@@ -17332,6 +17332,50 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Sprite_Enemies_290
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 536
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 461cd81d6ba44c64b821f92296a16336
+      internalID: -1698523372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Enemies_334
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 536
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 372c888ae83af89488b19e0e34c1ed4a
+      internalID: -118423446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -17348,7 +17392,15 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
+      Dino_Fire: 4167566630145154479
+      Dino_Idle: -6136831253710981457
+      Dino_Squished: 7257571379836735927
       Enemy_Projectile: -675099761668843415
+      Fire_1: 4382837815447957088
+      Fire_2: 8359410497581630345
+      Fire_3: 7773292347351907205
+      Fire_4: 3606134393623581498
+      Fire_5: -2911687253107177640
       Koopa_Death: -8320605450497437263
       Koopa_Squish: -6086775892676988321
       Koopa_TurnAround: -3308117943003608857
@@ -17568,6 +17620,7 @@ TextureImporter:
       Sprite_Enemies_288: -7199059520936841643
       Sprite_Enemies_289: 936871272392101253
       Sprite_Enemies_29: 5637884585264908924
+      Sprite_Enemies_290: -1698523372
       Sprite_Enemies_291: 2634411856299483029
       Sprite_Enemies_292: 5163059118326160480
       Sprite_Enemies_293: -147000117367987440
@@ -17616,6 +17669,7 @@ TextureImporter:
       Sprite_Enemies_331: -2074944620527126796
       Sprite_Enemies_332: -5660035332088033470
       Sprite_Enemies_333: -7888178152231183674
+      Sprite_Enemies_334: -118423446
       Sprite_Enemies_338: 8761235641639183874
       Sprite_Enemies_339: -1521151032509392861
       Sprite_Enemies_34: -8577990633489452866
@@ -17630,10 +17684,6 @@ TextureImporter:
       Sprite_Enemies_348: 4157982929927403747
       Sprite_Enemies_349: 1629665635267235488
       Sprite_Enemies_35: -8061515087566595011
-      Sprite_Enemies_350: 4382837815447957088
-      Sprite_Enemies_351: 8359410497581630345
-      Sprite_Enemies_352: 7773292347351907205
-      Sprite_Enemies_353: 3606134393623581498
       Sprite_Enemies_354: -5470561866128488072
       Sprite_Enemies_355: 8061766921210076013
       Sprite_Enemies_356: 4647701245553551253
@@ -17647,7 +17697,6 @@ TextureImporter:
       Sprite_Enemies_363: 4821853814417729382
       Sprite_Enemies_364: 7108455660183151516
       Sprite_Enemies_365: -2493197444541888966
-      Sprite_Enemies_366: -2911687253107177640
       Sprite_Enemies_367: -7294227362553924043
       Sprite_Enemies_368: 2480904824473653930
       Sprite_Enemies_369: -6315259471640576439
@@ -17655,9 +17704,6 @@ TextureImporter:
       Sprite_Enemies_370: 1199571781098403605
       Sprite_Enemies_371: -8867517488704175340
       Sprite_Enemies_372: 6637551108898550329
-      Sprite_Enemies_373: -6136831253710981457
-      Sprite_Enemies_374: 7257571379836735927
-      Sprite_Enemies_375: 4167566630145154479
       Sprite_Enemies_376: 6884296285647106564
       Sprite_Enemies_377: 6447869040204464832
       Sprite_Enemies_378: -1916225584067887003

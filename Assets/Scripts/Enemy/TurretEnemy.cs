@@ -4,6 +4,7 @@ public class TurretEnemy: BaseEnemy
 {
     [SerializeField] private float fireRate = 2.0f;
     private float timeSinceLastFire = 0;
+    private bool playerInRange = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()
@@ -18,18 +19,40 @@ public class TurretEnemy: BaseEnemy
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
 
         if (stateInfo.IsName("Idle"))
         {
             //trigger fire animation logic
-            if (Time.time >= timeSinceLastFire + fireRate)
+            if (Time.time >= timeSinceLastFire + fireRate && playerInRange)
             {
                 anim.SetTrigger("Fire");
                 timeSinceLastFire = Time.time;
             }
+        }
+    }
+
+    void OnTriggerEnter2D (Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            playerInRange = true;
+
+            // Flip to the player's direction
+            if (collision.transform.position.x < transform.position.x)
+                sr.flipX = true;
+            else
+                sr.flipX = false;
+        }
+    }
+
+    void OnTriggerExit2D (Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            playerInRange = false;
         }
     }
 }

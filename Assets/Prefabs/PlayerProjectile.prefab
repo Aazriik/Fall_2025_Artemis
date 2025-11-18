@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a2871e89c16fe84ca2827048d4c1e5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
+  type: 0
   lifetime: 4
 --- !u!58 &3757330029704817100
 CircleCollider2D:

@@ -296,7 +296,7 @@ Transform:
   m_GameObject: {fileID: 78098981}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -121.336075, y: -7.540272, z: 0}
+  m_LocalPosition: {x: -98.18607, y: -4.0210342, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2190,9 +2190,10 @@ GameObject:
   - component: {fileID: 882030094}
   - component: {fileID: 882030093}
   - component: {fileID: 882030097}
+  - component: {fileID: 882030098}
   m_Layer: 0
   m_Name: Turret
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2231,7 +2232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a73ea14006a51ee4980a4b1a16bc4432, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shoot
-  initialShotVelocity: {x: 3, y: 0}
+  initialShotVelocity: {x: 4, y: 0}
   spawnPointRight: {fileID: 1059044346}
   spawnPointLeft: {fileID: 702166622}
   projectilePrefab: {fileID: 3699602918929090698, guid: be1563d89e066704e81b5fc7d929246d, type: 3}
@@ -2348,7 +2349,7 @@ Transform:
   m_GameObject: {fileID: 882030091}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -109.55, y: -8.44, z: 0}
+  m_LocalPosition: {x: -109.91, y: -8.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2368,6 +2369,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd5c2b3782c92224f89b83dcea2e1899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TurretEnemy
+  maxHealth: 5
+  fireRate: 2
+--- !u!61 &882030098
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882030091}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.016872406, y: 0.4470048}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 0.8, y: 1.55}
+    newSize: {x: 0.8, y: 1.55}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 20, y: 1.5}
+  m_EdgeRadius: 0
 --- !u!1 &884669268
 GameObject:
   m_ObjectHideFlags: 0
@@ -3182,7 +3231,7 @@ Transform:
   m_GameObject: {fileID: 1866250070}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -119.46, y: -7.649238, z: 0}
+  m_LocalPosition: {x: -96.31, y: -4.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3847,11 +3896,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2291611642446840356, guid: b21817cbec5821b429f88383498da00e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -122.83577
+      value: -99.68577
       objectReference: {fileID: 0}
     - target: {fileID: 2291611642446840356, guid: b21817cbec5821b429f88383498da00e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.81
+      value: -4.290762
       objectReference: {fileID: 0}
     - target: {fileID: 2291611642446840356, guid: b21817cbec5821b429f88383498da00e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3965,7 +4014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8696074365925440815, guid: 2af4174ec20734e4489da0288ea781f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -117.23
+      value: -122.78
       objectReference: {fileID: 0}
     - target: {fileID: 8696074365925440815, guid: 2af4174ec20734e4489da0288ea781f1, type: 3}
       propertyPath: m_LocalPosition.y
