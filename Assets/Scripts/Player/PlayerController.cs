@@ -101,6 +101,16 @@ public class PlayerController : MonoBehaviour
             sr.flipX = (hValue < 0);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Squish") && rb.linearVelocityY < 0)
+        {
+            collision.GetComponentInParent<BaseEnemy>().TakeDamage(0, DamageType.JumpedOn);
+            rb.linearVelocity = Vector2.zero;
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
+    }
+
     // Method to apply jump force power-up
     public void ApplyJumpForcePowerup()
     {
