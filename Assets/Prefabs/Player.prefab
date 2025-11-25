@@ -171,8 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403ee164e27f64947bc0808c3feec58f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  maxLives: 5
-  moveSpeed: 5
+  speed: 7
   initalPowerUpTimer: 5
   jumpForce: 7
   groundCheckRadius: 0.2

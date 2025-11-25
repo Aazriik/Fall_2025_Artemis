@@ -66,11 +66,22 @@ public class PlayerController: MonoBehaviour
         //set the rigidbody's horizontal velocity based on the input value multiplied by our speed - vertical velocity remains unchanged
         rb.linearVelocityX = hValue * speed;
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (isGrounded)
         {
-            //apply an upward force to the rigidbody when the jump button is pressed
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            if (Input.GetButtonDown("Jump"))
+            {
+                //apply an upward force to the rigidbody when the jump button is pressed
+                rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            }
         }
+        else
+        {
+            if (Input.GetButtonDown("Jump"))
+            {
+                anim.SetTrigger("JumpAtk");
+            }
+        }
+
 
         if (Input.GetButtonDown("Fire1") && isGrounded && hValue == 0)
         {
@@ -100,7 +111,10 @@ public class PlayerController: MonoBehaviour
     //dynamic rigidbody collides with another dynamic or static collider
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            TakeDamage(1);
+        }
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -130,6 +144,13 @@ public class PlayerController: MonoBehaviour
     {
 
     }
+
+    public void TakeDamage(int livesLost)
+    {
+        GameManager.Instance.lives -= livesLost;
+    }
+
+    public void IncreaseGravity() => rb.gravityScale = 5f;
 
     #region Powerup Functions
     public void ApplyJumpForcePowerup()
@@ -162,50 +183,4 @@ public class PlayerController: MonoBehaviour
     }
     #endregion
 
-    #region Getters And Setters
-    //public int lives
-    //{
-    //    get => _lives;
-    //    set
-    //    {
-    //        if (value < 0)
-    //        {
-    //            GameOver();
-    //            return;
-    //        }
-
-    //        if (value > maxLives)
-    //        {
-    //            _lives = maxLives;
-    //        }
-    //        else
-    //        {
-    //            _lives = value;
-    //        }
-
-    //        Debug.Log($"Life value has changed to {_lives}");
-    //    }
-    //}
-
-    //private void GameOver()
-    //{
-    //    Debug.Log("GameOver!");
-    //}
-
-    //C++ way of doing getters and setters
-    //public int GetLives() { return lives; }
-    //public void SetLives(int value)
-    //{
-    //    //if (value < 0)
-    //    //GameOver();
-
-    //    if (value > maxLives)
-    //    {
-    //        lives = maxLives;
-    //        return;
-    //    }
-
-    //    lives = value;
-    //}
-    #endregion
 }

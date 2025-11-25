@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SpawnPickups : MonoBehaviour
+public class SpawnPickups: MonoBehaviour
 {
     public GameObject[] pickupPrefabs;
 
@@ -8,11 +8,9 @@ public class SpawnPickups : MonoBehaviour
     void Start()
     {
         int randNum = Random.Range(0, pickupPrefabs.Length);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (pickupPrefabs[randNum] != null)
+        {
+            Instantiate(pickupPrefabs[randNum], transform.position, Quaternion.identity);
+        }
     }
 }

@@ -27,7 +27,7 @@ public class Shoot : MonoBehaviour
             // Set a default value for initialShotVelocity
             initialShotVelocity = new Vector2(10f, 0f);
             // Log a warning if it was not set
-            Debug.LogError("Shoot: initialShotVelocity is not set.");
+            Debug.LogWarning("Initial shot velocity not set on Shoot component of " + gameObject.name + ", defaulting to " + initialShotVelocity);
         }
         // Check if spawn points and projectile prefab are set
         if (spawnPointLeft == null || spawnPointRight == null || projectilePrefab == null)

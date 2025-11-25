@@ -21,6 +21,16 @@ public class Projectile: MonoBehaviour
                 Destroy(gameObject);
             }
         }
+
+        if (type == ProjectileType.Enemy)
+        {
+            PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+            if (player != null)
+            {
+                player.TakeDamage(1);
+                Destroy(gameObject);
+            }
+        }
     }
 }
 

@@ -5,6 +5,8 @@ public class CameraFollow: MonoBehaviour
 {
     [SerializeField] private float minXPos = -4.5f;
     [SerializeField] private float maxXPos = 233.3f;
+    [SerializeField] private float minYPos = -5.8f;
+    [SerializeField] private float maxYPos = 5.7f;
 
     //private - private to the class - you would use this for variables that should not be accessed outside of this class. We can add the serializefield attribute to make it show up in the inspector
     //public - public to everyone - you would use this for variables or methods that need to be accessed from other classes
@@ -46,6 +48,7 @@ public class CameraFollow: MonoBehaviour
         Vector3 pos = transform.position;
         //update the x position to match the target's x position
         pos.x = Mathf.Clamp(target.position.x, minXPos, maxXPos);
+        pos.y = Mathf.Clamp(target.position.y, minYPos, maxYPos);
         //apply the updated position back to the transform
         transform.position = pos;
     }
