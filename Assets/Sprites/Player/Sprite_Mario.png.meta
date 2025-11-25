@@ -1485,7 +1485,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_53
+      name: MarioJumpAtt1
       rect:
         serializedVersion: 2
         x: 185
@@ -1507,7 +1507,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_54
+      name: MarioJumpAtt2
       rect:
         serializedVersion: 2
         x: 218
@@ -1529,7 +1529,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_55
+      name: MarioJumpAtt3
       rect:
         serializedVersion: 2
         x: 253
@@ -1551,7 +1551,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_56
+      name: MarioJumpAtt4
       rect:
         serializedVersion: 2
         x: 286
@@ -1573,7 +1573,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_57
+      name: MarioJumpAtt5
       rect:
         serializedVersion: 2
         x: 315
@@ -1595,7 +1595,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_58
+      name: MarioJumpAtt6
       rect:
         serializedVersion: 2
         x: 345
@@ -1676,6 +1676,12 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
+      MarioJumpAtt1: -991126873710766664
+      MarioJumpAtt2: -2451452407061476743
+      MarioJumpAtt3: -9079682761693699110
+      MarioJumpAtt4: 102199271187479275
+      MarioJumpAtt5: 4596178438584576817
+      MarioJumpAtt6: -223910129502012368
       Mario_Balloon: -7156801889515416839
       Mario_Crouch_Big: -598077030875622236
       Mario_Crouch_Small: 1357806328429647872
@@ -1729,12 +1735,6 @@ TextureImporter:
       Sprite_Mario_50: -5021473000565013323
       Sprite_Mario_51: -3917910848853407703
       Sprite_Mario_52: 2024578721505582386
-      Sprite_Mario_53: -991126873710766664
-      Sprite_Mario_54: -2451452407061476743
-      Sprite_Mario_55: -9079682761693699110
-      Sprite_Mario_56: 102199271187479275
-      Sprite_Mario_57: 4596178438584576817
-      Sprite_Mario_58: -223910129502012368
       Sprite_Mario_59: -7734174553045002093
       Sprite_Mario_60: 1622122130505264950
   mipmapLimitGroupName: 
