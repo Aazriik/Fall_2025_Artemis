@@ -4,10 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Life: Pickup
 {
-    // Variables
     public int livesToAdd = 1;
-    Rigidbody2D rb;
 
+    Rigidbody2D rb;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -15,10 +14,10 @@ public class Life: Pickup
         rb.linearVelocity = new Vector2(-2, 2);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         rb.linearVelocity = new Vector2(-2, rb.linearVelocity.y);
     }
 
-    public override void OnPickup(GameObject player) => player.GetComponent<PlayerController>().lives += livesToAdd;
+    public override void OnPickup(GameObject player) => GameManager.Instance.lives += livesToAdd;
 }

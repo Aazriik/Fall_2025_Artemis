@@ -37,7 +37,7 @@ public class GroundCheck
     }
 
     // Method to update the ground check radius
-    public void UpdateCheckRadius(float newRadius)
+    public void UpdateGroundCheckRadius(float newRadius)
     {
         // Update the ground check radius
         groundCheckRadius = newRadius;

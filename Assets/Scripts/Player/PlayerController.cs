@@ -1,79 +1,70 @@
-// Libraries
-//using System.Collections;
 using UnityEngine;
 
-// Required Components
+//This will be attached to the player gameobject to control its movement
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D), typeof(SpriteRenderer))]
 [RequireComponent(typeof(Animator))]
-public class PlayerController : MonoBehaviour
+public class PlayerController: MonoBehaviour
 {
-    #region Control Variables
-    // Player Health
-    [Header("Health Settings")]
-    public int maxLives = 10;
-    private int _lives = 5;
-
-    // Movement
-    [Header("Movement Settings")]
-    public float moveSpeed = 10f;               // Player movement speed
-
-    [Header("Jump Settings")]
-    public float initalPowerUpTimer = 5f;       // Initial duration of jump power-up
-    public float jumpForce = 10f;               // Force applied when jumping
-    public float groundCheckRadius = 0.2f;      // Radius for ground check
-    private bool isGrounded = false;            // Is the player grounded
-
-    //public float Gravity => -(2 * MaxJumpHeight) / (TimeToJumpApex * TimeToJumpApex);
-    //public float JumpVelocity => Mathf.Abs(Gravity) * TimeToJumpApex;
-
+    #region Control Vars
+    //control variables
+    //a speed value that will control how fast the player moves horizontally
+    public float speed = 10f;
+    public float initalPowerUpTimer = 5f;
+    public float jumpForce = 10f;
+    public float groundCheckRadius = 0.02f;
+    //public int maxLives = 10;
+    //private int _lives = 5;
+    private bool isGrounded = false;
     #endregion
 
-    #region Component References
-    // Component Refs
-    private Rigidbody2D rb;                     // Reference to the player's Rigidbody2D
-    private Collider2D col;                     // Reference to the player's Collider2D
-    private SpriteRenderer sr;                  // Reference to the player's SpriteRenderer
-    private Animator anim;                      // Reference to the player's Animator
-    private GroundCheck groundCheck;            // Reference to GroundCheck script
-
+    #region Component Ref
+    //Component references
+    private Rigidbody2D rb;
+    private Collider2D col;
+    private SpriteRenderer sr;
+    private Animator anim;
+    private GroundCheck groundCheck;
     #endregion
 
-    #region State Variables
-    // State Variables
+    #region State Vars
+    //State variables
     private Coroutine jumpForceCoroutine = null;
-    private float jumpPowerupTimer = 0f;        // Duration of jump power-up
-
+    private float jumpPowerupTimer = 0f;
     #endregion
 
-    // Start is called once at creation
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // Get the Rigidbody2D component
+        //get the Rigidbody2D component attached to the same gameobject - we assume that it exists
         rb = GetComponent<Rigidbody2D>();
-        // Get the Collider2D component
         col = GetComponent<Collider2D>();
-        // Get the SpriteRenderer component
         sr = GetComponent<SpriteRenderer>();
-        // Get the Animator component
         anim = GetComponent<Animator>();
-        // Initialize GroundCheck
+
         groundCheck = new GroundCheck(col, LayerMask.GetMask("Ground"), groundCheckRadius);
+
+        //Transform based ground check setup - using an empty gameobject as a child of the player to define the ground check position
+        //initalize ground check poositon using separate gameobject as a child of the player
+        //GameObject newObj = new GameObject("GroundCheck");
+        //newObj.transform.SetParent(transform);
+        //newObj.transform.localPosition = Vector3.zero;
+        //groundCheck = newObj.transform;
+        //this is basically the same as doing it in the editor, but we do it here to keep everything self-contained
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
         isGrounded = groundCheck.CheckIsGrounded();
 
-        // Player Movement Horizontal
+        //grab our horizontal input value - negative button is moving to the left (A/Left Arrow), positive button is moving to the right (D/Right Arrow) - cross platform compatible so it works with keyboard, joystick, etc. -1 to 1 range where zero means no input
         float hValue = Input.GetAxis("Horizontal");
         float vValue = Input.GetAxisRaw("Vertical");
-        // Flip Sprite
         SpriteFlip(hValue);
 
-        rb.linearVelocityX = hValue * moveSpeed;
+        //set the rigidbody's horizontal velocity based on the input value multiplied by our speed - vertical velocity remains unchanged
+        rb.linearVelocityX = hValue * speed;
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
@@ -81,7 +72,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && isGrounded && hValue == 0)
         {
             anim.SetTrigger("Fire");
         }
@@ -91,16 +82,37 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("isGrounded", isGrounded);
     }
 
-    private void OnValidate() => groundCheck?.UpdateCheckRadius(groundCheckRadius);
+    private void OnValidate() => groundCheck?.UpdateGroundCheckRadius(groundCheckRadius);
 
     private void SpriteFlip(float hValue)
     {
-        // Flip sprite based on movement direction
-        // hValue is negative for left, positive for right
+        //we can use the (hValue < 0) expression to set flipX directly - hValue is negative when moving left, so flipX should be true
         if (hValue != 0)
             sr.flipX = (hValue < 0);
+
+        //flip the sprite based on the direction we are moving - flipX is true when the sprite is facing left
+        //if (sr.flipX && hValue > 0 || !sr.flipX && hValue < 0)
+        //{
+        //    sr.flipX = !sr.flipX;
+        //}
     }
 
+    //dynamic rigidbody collides with another dynamic or static collider
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        Debug.Log("Collided With: " + collision.gameObject.name);
+    }
+    //dynamic rigidbody collides with another dynamic or static collider
+
+    //These functions are called when a trigger collider is entered, stayed in, or exited - they don't really have any limits on what they can interact with
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Squish") && rb.linearVelocityY < 0)
@@ -110,26 +122,29 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
     }
-
-    // Method to apply jump force power-up
-    public void ApplyJumpForcePowerup()
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        // If a jump force coroutine is already running, stop it
-        if (jumpForceCoroutine != null)
-        {
-            // Stop the existing coroutine
-            StopCoroutine(jumpForceCoroutine);
-            // Reset jump force to default
-            jumpForceCoroutine = null;
-            // Reset jump force to default
-            jumpForce = 7f;
-        }
-        // Start a new jump force coroutine
-        jumpForceCoroutine = StartCoroutine(JumpForceCoroutine());
+
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+
     }
 
-    // Coroutine to handle jump force power-up duration
-    System.Collections.IEnumerator JumpForceCoroutine()
+    #region Powerup Functions
+    public void ApplyJumpForcePowerup()
+    {
+        if (jumpForceCoroutine != null)
+        {
+            StopCoroutine(jumpForceCoroutine);
+            jumpForceCoroutine = null;
+            jumpForce = 7;
+        }
+
+        jumpForceCoroutine = StartCoroutine(JumpForceChange());
+    }
+
+    System.Collections.IEnumerator JumpForceChange()
     {
         jumpPowerupTimer = initalPowerUpTimer + jumpPowerupTimer;
         jumpForce = 10;
@@ -145,33 +160,52 @@ public class PlayerController : MonoBehaviour
         jumpForceCoroutine = null;
         jumpPowerupTimer = 0;
     }
+    #endregion
 
-    public int lives
-    {
-        get => _lives;
-        set
-        {
-            if (value < 0)
-            {
-                GameOver();
-                return;
-            }
+    #region Getters And Setters
+    //public int lives
+    //{
+    //    get => _lives;
+    //    set
+    //    {
+    //        if (value < 0)
+    //        {
+    //            GameOver();
+    //            return;
+    //        }
 
-            if (value > maxLives)
-            {
-                _lives = maxLives;
-            }
-            else
-            {
-                _lives = value;
-            }
+    //        if (value > maxLives)
+    //        {
+    //            _lives = maxLives;
+    //        }
+    //        else
+    //        {
+    //            _lives = value;
+    //        }
 
-            Debug.Log($"Life value has changed to {_lives}");
-        }
-    }
+    //        Debug.Log($"Life value has changed to {_lives}");
+    //    }
+    //}
 
-    private void GameOver()
-    {
-        Debug.Log("GameOver!");
-    }
+    //private void GameOver()
+    //{
+    //    Debug.Log("GameOver!");
+    //}
+
+    //C++ way of doing getters and setters
+    //public int GetLives() { return lives; }
+    //public void SetLives(int value)
+    //{
+    //    //if (value < 0)
+    //    //GameOver();
+
+    //    if (value > maxLives)
+    //    {
+    //        lives = maxLives;
+    //        return;
+    //    }
+
+    //    lives = value;
+    //}
+    #endregion
 }

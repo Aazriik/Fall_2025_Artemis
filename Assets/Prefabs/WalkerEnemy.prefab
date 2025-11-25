@@ -370,7 +370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8137780852698209576}
   m_Layer: 0
-  m_Name: Enemy_Koopa
+  m_Name: WalkerEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
