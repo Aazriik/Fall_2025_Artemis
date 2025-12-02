@@ -201,7 +201,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 17703470}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 643520906432732110}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ReloadGameScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &17703470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -621,12 +633,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a125e77836bd5d4d99ed1ccc7d2deaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CanvasManager
-  startButton: {fileID: 17703469}
-  settingsButton: {fileID: 1822273342}
-  quitButton: {fileID: 1346093349}
-  backSettingsButton: {fileID: 267550773}
+  mainMenuStartButton: {fileID: 17703469}
+  mainMenuSettingsButton: {fileID: 1822273342}
+  settingsBackButton: {fileID: 267550773}
+  pauseResumeButton: {fileID: 0}
+  pauseMainMenuButton: {fileID: 0}
+  gameOverPlayAgainButton: {fileID: 0}
+  gameOverMainMenuButton: {fileID: 0}
+  gameOverQuitButton: {fileID: 0}
+  menuQuitButton: {fileID: 1346093349}
+  livesText: {fileID: 0}
   mainMenu: {fileID: 538556255}
   settingsMenu: {fileID: 18141094}
+  pauseMenu: {fileID: 0}
+  gameOverMenu: {fileID: 0}
 --- !u!1 &538556255
 GameObject:
   m_ObjectHideFlags: 0
@@ -1710,6 +1730,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfdc57eeefde05347b915f3c19303342, type: 3}
+--- !u!114 &643520906432732110 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1465537241476024444, guid: dfdc57eeefde05347b915f3c19303342, type: 3}
+  m_PrefabInstance: {fileID: 643520906432732108}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a5dcfb4b53e35459230d697eba0d41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

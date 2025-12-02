@@ -1,3 +1,4 @@
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +8,10 @@ public class GameManager: MonoBehaviour
     //Signature that defines the delegate type - delegates are like function pointers
     public delegate void PlayerInstanceDelegate(PlayerController playerInstance);
     public event PlayerInstanceDelegate OnPlayerSpawned;
+
+    // Alternatively, using System.Action<T> to define the event
+    public event System.Action<int> OnLifeValueChanged;
+
 
     // Singleton is a design pattern that restricts the instantiation of a class to one "single" instance.
     #region Singleton Pattern
@@ -26,7 +31,7 @@ public class GameManager: MonoBehaviour
     #endregion
 
     #region Lives Management
-    private int _lives = 5;
+    private int _lives = 3;
     public int maxLives = 10;
     public int lives
     {
@@ -41,8 +46,16 @@ public class GameManager: MonoBehaviour
 
             if (lives > value)
             {
-                Respawn();
-                _lives = value;
+                if (lives == 0)
+                {
+                    GameOver();
+                    return;
+                }
+                else
+                {
+                    Respawn();
+                    _lives = value;
+                }
             }
 
             if (value > maxLives)
@@ -51,6 +64,10 @@ public class GameManager: MonoBehaviour
             }
 
             Debug.Log($"Life value has changed to {_lives}");
+
+            OnLifeValueChanged?.Invoke(_lives);
+            //some event to notify listeners that lives have changed?
+
         }
     }
     private void GameOver()
@@ -69,8 +86,6 @@ public class GameManager: MonoBehaviour
     public PlayerController playerInstance => _playerInstance;
     private Vector3 currentCheckpoint;
     #endregion
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
 
 
     // Update is called once per frame
@@ -104,5 +119,18 @@ public class GameManager: MonoBehaviour
     }
 
     public void UpdateCheckpoint(Vector3 newCheckpoint) => currentCheckpoint = newCheckpoint;
+
+    public void ResetLives() => _lives = 3;
+
+    public void ReloadGameScene()
+    {
+        SceneManager.LoadScene(1);
+
+        if (_lives != 3)
+        {
+            ResetLives();
+        }
+    }
+
 }
 

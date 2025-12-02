@@ -1,91 +1,152 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
+using Unity.VisualScripting;
 
-public class CanvasManager : MonoBehaviour
+public class CanvasManager: MonoBehaviour
 {
-    [Header("Button Refs")]
-    public Button startButton;
-    public Button settingsButton;
-    public Button quitButton;
-    public Button backSettingsButton;
-    public Button resumeButton;
-    public Button returnToMenuButton;
+    [Header("Button References")]
+    [Header("Main Menu Buttons")]
+    public Button mainMenuStartButton;
+    public Button mainMenuSettingsButton;
 
-    [Header("HUD Refs")]
+    [Header("Settings Menu Buttons")]
+    public Button settingsBackButton;
+
+    [Header("Pause Menu Buttons")]
+    public Button pauseResumeButton;
+    public Button pauseMainMenuButton;
+
+    [Header("Game Over Buttons")]
+    public Button gameOverPlayAgainButton;
+    public Button gameOverMainMenuButton;
+    public Button gameOverQuitButton;
+
+    [Header("Common Menu Buttons")]
+    public Button menuQuitButton;
+
+    [Header("HUD References")]
     public TMP_Text livesText;
 
-    [Header("Menu Refs")]
+    [Header("Menu References")]
     public GameObject mainMenu;
     public GameObject settingsMenu;
     public GameObject pauseMenu;
+    public GameObject gameOverMenu;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (startButton)
-            startButton.onClick.AddListener(() => SceneManager.LoadScene(1));
+        // Main Menu Buttons
+        if (mainMenuStartButton)
+            mainMenuStartButton.onClick.AddListener(() => SceneManager.LoadScene(1));
 
-        if (settingsButton)
-            settingsButton.onClick.AddListener(() => SetMenu(settingsMenu, mainMenu));
+        if (mainMenuSettingsButton)
+            mainMenuSettingsButton.onClick.AddListener(() => SetMenus(settingsMenu, mainMenu));
 
-        if (backSettingsButton)
-            backSettingsButton.onClick.AddListener(() => SetMenu(mainMenu, settingsMenu));
+        // Settings Menu Buttons
+        if (settingsBackButton)
+            settingsBackButton.onClick.AddListener(() => SetMenus(mainMenu, settingsMenu));
+
+        // Pause Menu Buttons
+        if (pauseResumeButton)
+            pauseResumeButton.onClick.AddListener(() => SetMenus(null, pauseMenu));
+
+        if (pauseMainMenuButton)
+            pauseMainMenuButton.onClick.AddListener(() => SceneManager.LoadScene(0));
+
+        // Game Over Buttons
+        if (gameOverPlayAgainButton)
+            gameOverPlayAgainButton.onClick.AddListener(() => SceneManager.LoadScene(1));
+
+        if (gameOverMainMenuButton)
+            gameOverMainMenuButton.onClick.AddListener(() => SceneManager.LoadScene(0));
 
 
-        if (resumeButton)
-            resumeButton.onClick.AddListener(() => SetMenu(null, pauseMenu));
+        // Quit Game Buttons
+        if (gameOverQuitButton)
+            gameOverQuitButton.onClick.AddListener(QuitGame);
 
-        if (returnToMenuButton)
-            returnToMenuButton.onClick.AddListener(() => SceneManager.LoadScene(0));
+        if (menuQuitButton)
+            menuQuitButton.onClick.AddListener(QuitGame);
 
+        // HUD References
+        if (livesText)
+        {
+            livesText.text = $"Lives: {GameManager.Instance.lives}";
+            GameManager.Instance.OnLifeValueChanged += (int newLives) => livesText.text = $"Lives: {newLives}";
 
+            // If Lives reach 0, show Game Over menu
+            GameManager.Instance.OnLifeValueChanged += (int newLives) =>
+            {
+                if (newLives <= 0)
+                {
+                    SetMenus(gameOverMenu, pauseMenu);
+                    PauseGame();
+                }
+            };
+        }
 
-        if (quitButton)
-            quitButton.onClick.AddListener(QuitGame);
+        // Pause Menu Buttons
+        if (pauseMainMenuButton)
+            pauseMainMenuButton.onClick.AddListener(UnPause);
+
+        // Game Over Buttons
+        if (gameOverPlayAgainButton)
+            gameOverPlayAgainButton.onClick.AddListener(UnPause);
+
+        if (gameOverMainMenuButton)
+            gameOverMainMenuButton.onClick.AddListener(UnPause);
 
     }
 
-    private void SetMenu(GameObject menuToEnable, GameObject menuToDisable)
+    private void SetMenus(GameObject menuToEnable, GameObject menuToDisable)
     {
-        if (menuToEnable) menuToEnable.SetActive(true);
-        if (menuToDisable) menuToDisable.SetActive(false);
+        if (menuToEnable)
+            menuToEnable.SetActive(true);
+        if (menuToDisable)
+            menuToDisable.SetActive(false);
     }
 
     private void QuitGame()
     {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-        #else
-        Application.Quit();
-        #endif
+#else
+            Application.Quit();
+#endif
+    }
+
+    private void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    private void UnPause()
+    {
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (livesText)
-        {
-            int currentLives = GameManager.Instance.lives;
-            livesText.text = $"Lives: {currentLives}";
-        }
-
-        if (!pauseMenu) return;
+        if (!pauseMenu)
+            return;
 
         if (Input.GetKeyDown(KeyCode.P))
         {
             if (pauseMenu.activeSelf)
             {
-                SetMenu(null, pauseMenu);
-                Time.timeScale = 1f;
+                SetMenus(null, pauseMenu);
+                Time.timeScale = 1;
                 return;
             }
-            else
-            {
-                SetMenu(pauseMenu, null);
-                Time.timeScale = 0f;
-            }
+
+            SetMenus(pauseMenu, null);
+            PauseGame();
         }
+
     }
 }
