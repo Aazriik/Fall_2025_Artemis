@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 413249408497538810}
   - component: {fileID: 6157136379696661728}
   - component: {fileID: 4426390733010450106}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TurretEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -256,6 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TurretEnemy
   maxHealth: 5
+  distThreshold: 3
   fireRate: 2
 --- !u!61 &4426390733010450106
 BoxCollider2D:
@@ -291,7 +292,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.016872406, y: 0.4470048}
+  m_Offset: {x: 0.032146454, y: 0.66161084}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -301,5 +302,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 20, y: 1.5}
+  m_Size: {x: 16.68679, y: 1.0707879}
   m_EdgeRadius: 0

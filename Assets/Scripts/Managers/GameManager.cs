@@ -8,6 +8,7 @@ public class GameManager: MonoBehaviour
     public delegate void PlayerInstanceDelegate(PlayerController playerInstance);
     public event PlayerInstanceDelegate OnPlayerSpawned;
 
+    // Singleton is a design pattern that restricts the instantiation of a class to one "single" instance.
     #region Singleton Pattern
     private static GameManager _instance;
     public static GameManager Instance => _instance;

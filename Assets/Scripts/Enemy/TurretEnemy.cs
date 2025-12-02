@@ -6,6 +6,8 @@ public class TurretEnemy: BaseEnemy
     private float timeSinceLastFire = 0;
     private bool playerInRange = false;
 
+    private PlayerController playerRef;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()
     {
@@ -16,11 +18,15 @@ public class TurretEnemy: BaseEnemy
             Debug.LogError("Fire rate must be greater than zero, set to default value of 2");
             fireRate = 2.0f;
         }
+
+        GameManager.Instance.OnPlayerSpawned += (PlayerController playerInstance) => playerRef = playerInstance;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!playerRef) return;
+
         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
 
         if (stateInfo.IsName("Idle"))
@@ -39,6 +45,7 @@ public class TurretEnemy: BaseEnemy
         if (collision.CompareTag("Player"))
         {
             playerInRange = true;
+            sr.color = Color.red;
 
             // Flip to the player's direction
             if (collision.transform.position.x < transform.position.x)
@@ -53,6 +60,7 @@ public class TurretEnemy: BaseEnemy
         if (collision.CompareTag("Player"))
         {
             playerInRange = false;
+            sr.color = Color.white;
         }
     }
 }
