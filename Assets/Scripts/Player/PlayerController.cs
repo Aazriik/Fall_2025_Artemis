@@ -8,9 +8,9 @@ public class PlayerController: MonoBehaviour
     #region Control Vars
     //control variables
     //a speed value that will control how fast the player moves horizontally
-    public float speed = 10f;
+    public float speed = 7f;
     public float initalPowerUpTimer = 5f;
-    public float jumpForce = 10f;
+    public float jumpForce = 7f;
     public float groundCheckRadius = 0.02f;
     //public int maxLives = 10;
     //private int _lives = 5;
