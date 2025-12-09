@@ -1,4 +1,3 @@
-// Libraries
 using UnityEngine;
 
 public class Shoot : MonoBehaviour
@@ -13,14 +12,22 @@ public class Shoot : MonoBehaviour
     [SerializeField] private Transform spawnPointLeft;
     [SerializeField] private Projectile projectilePrefab;
 
+    [Header("Sound Effects")]
+    public AudioClip fireballSFX;
+
     // Component Refs
     private SpriteRenderer sr;
+    private AudioSource source;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         // Get the SpriteRenderer component
         sr = GetComponent<SpriteRenderer>();
+
+        // Get the AudioSource component
+        source = GetComponent<AudioSource>();
+
         // Error Checking
         if (initialShotVelocity == Vector2.zero)
         {
@@ -58,11 +65,5 @@ public class Shoot : MonoBehaviour
             // Set its velocity to the negative initial shot velocity on the x-axis
             curProjectile.SetVelocity(new Vector2(-initialShotVelocity.x, initialShotVelocity.y));
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

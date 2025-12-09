@@ -1,4 +1,3 @@
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -31,7 +30,7 @@ public class GameManager: MonoBehaviour
     #endregion
 
     #region Lives Management
-    private int _lives = 3;
+    private int _lives = 5;
     public int maxLives = 10;
     public int lives
     {
@@ -41,42 +40,36 @@ public class GameManager: MonoBehaviour
             if (value < 0)
             {
                 GameOver();
-                return;
             }
-
-            if (lives > value)
+            else if (value < _lives)
             {
-                if (lives == 0)
-                {
-                    GameOver();
-                    return;
-                }
-                else
-                {
-                    Respawn();
-                    _lives = value;
-                }
+                Respawn();
+                _lives = value;
             }
-
-            if (value > maxLives)
+            else if (value > maxLives)
             {
                 _lives = maxLives;
+            }
+            else
+            {
+                _lives = value;
             }
 
             Debug.Log($"Life value has changed to {_lives}");
 
             OnLifeValueChanged?.Invoke(_lives);
             //some event to notify listeners that lives have changed?
-
         }
     }
     private void GameOver()
     {
         Debug.Log("GameOver!");
+
     }
     private void Respawn()
     {
-        playerInstance.transform.position = currentCheckpoint;
+        if (playerInstance != null)
+            playerInstance.transform.position = currentCheckpoint;
     }
     #endregion
 
@@ -111,26 +104,8 @@ public class GameManager: MonoBehaviour
         currentCheckpoint = spawnPos;
 
         OnPlayerSpawned?.Invoke(_playerInstance);
-
-        //if (OnPlayerSpawned != null)
-        //{
-        //    OnPlayerSpawned.Invoke(_playerInstance);
-        //}
     }
 
     public void UpdateCheckpoint(Vector3 newCheckpoint) => currentCheckpoint = newCheckpoint;
-
-    public void ResetLives() => _lives = 3;
-
-    public void ReloadGameScene()
-    {
-        SceneManager.LoadScene(1);
-
-        if (_lives != 3)
-        {
-            ResetLives();
-        }
-    }
-
 }
 

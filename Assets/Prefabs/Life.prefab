@@ -184,8 +184,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21cd4e974052f76468c6ecc1ece45175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Life
-  lifetime: 0
+  sfxMixerGroup: {fileID: 5739201930337526718, guid: 64c73501b8f26cd4dae835dadba3bca4, type: 2}
+  pickupSound: {fileID: 8300000, guid: 943095a28ba1d88488cd67a053f9b223, type: 3}
+  lifetime: 1
   livesToAdd: 1
+  childCollider: {fileID: 3281535700959044192}
 --- !u!61 &626742456675121622
 BoxCollider2D:
   m_ObjectHideFlags: 0

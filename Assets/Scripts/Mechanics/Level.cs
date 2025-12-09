@@ -2,8 +2,13 @@ using UnityEngine;
 
 public class Level: MonoBehaviour
 {
+    public int startingLifeValue = 5;
     public Transform spawnPos;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start() => GameManager.Instance.InstantiatePlayer(spawnPos.position);
+    void Start()
+    {
+        GameManager.Instance.InstantiatePlayer(spawnPos.position);
+        GameManager.Instance.lives = startingLifeValue;
+    }
 }

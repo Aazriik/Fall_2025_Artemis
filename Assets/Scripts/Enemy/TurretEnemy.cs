@@ -15,7 +15,7 @@ public class TurretEnemy: BaseEnemy
 
         if (fireRate <= 0)
         {
-            Debug.LogError("Fire rate must be greater than zero, set to default value of 2");
+            //Debug.LogError("Fire rate must be greater than zero, set to default value of 2");
             fireRate = 2.0f;
         }
 

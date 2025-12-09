@@ -5,10 +5,12 @@ using UnityEngine;
 public class Life: Pickup
 {
     public int livesToAdd = 1;
+    public Collider2D childCollider;
 
     Rigidbody2D rb;
-    private void Start()
+    public override void Start()
     {
+        base.Start();
         rb = GetComponent<Rigidbody2D>();
 
         rb.linearVelocity = new Vector2(-2, 2);
@@ -19,5 +21,9 @@ public class Life: Pickup
         rb.linearVelocity = new Vector2(-2, rb.linearVelocity.y);
     }
 
-    public override void OnPickup(GameObject player) => GameManager.Instance.lives += livesToAdd;
+    public override void OnPickup(GameObject player)
+    {
+        childCollider.enabled = false;
+        GameManager.Instance.lives += livesToAdd;
+    }
 }

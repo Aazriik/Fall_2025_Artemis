@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
-using Unity.VisualScripting;
+using UnityEngine.Audio;
 
 public class CanvasManager: MonoBehaviour
 {
@@ -35,10 +35,18 @@ public class CanvasManager: MonoBehaviour
     public GameObject pauseMenu;
     public GameObject gameOverMenu;
 
+    [Header("Sound Effects")]
+    private AudioSource source;
+    public AudioMixerGroup sfxMixer;
+    public AudioClip pauseSFX;
+    public AudioClip gameOverSFX;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        source = GetComponent<AudioSource>();
+
         // Main Menu Buttons
         if (mainMenuStartButton)
             mainMenuStartButton.onClick.AddListener(() => SceneManager.LoadScene(1));
@@ -52,17 +60,46 @@ public class CanvasManager: MonoBehaviour
 
         // Pause Menu Buttons
         if (pauseResumeButton)
-            pauseResumeButton.onClick.AddListener(() => SetMenus(null, pauseMenu));
+            pauseResumeButton.onClick.AddListener(() =>
+            {
+                SetMenus(null, pauseMenu);
+                // Unpause Game
+                Time.timeScale = 1;
+                // play sound effect
+                //sfxMixer.audioMixer.Equals(pauseSFX);
+                source.PlayOneShot(pauseSFX);
+            });
 
         if (pauseMainMenuButton)
-            pauseMainMenuButton.onClick.AddListener(() => SceneManager.LoadScene(0));
+            pauseMainMenuButton.onClick.AddListener(() =>
+            {
+                // Unpause Game
+                Time.timeScale = 1;
+                // stop any sound effect, then play pause sound effect
+                source.Stop();
+                source.PlayOneShot(pauseSFX);
+                // load main menu
+                SceneManager.LoadScene(0);
+            });
 
         // Game Over Buttons
         if (gameOverPlayAgainButton)
-            gameOverPlayAgainButton.onClick.AddListener(() => SceneManager.LoadScene(1));
+            gameOverPlayAgainButton.onClick.AddListener(() =>
+            {
+                // load level scene
+                SceneManager.LoadScene(1);
+                // stop any game over sound effects
+                source.Stop();
+            });
 
         if (gameOverMainMenuButton)
-            gameOverMainMenuButton.onClick.AddListener(() => SceneManager.LoadScene(0));
+            gameOverMainMenuButton.onClick.AddListener(() =>
+            {
+                // Unpause Game
+                Time.timeScale = 1;
+                // load main menu
+                SceneManager.LoadScene(0);
+            });
 
 
         // Quit Game Buttons
@@ -84,7 +121,12 @@ public class CanvasManager: MonoBehaviour
                 if (newLives <= 0)
                 {
                     SetMenus(gameOverMenu, pauseMenu);
-                    PauseGame();
+                    // Pause Game
+                    Time.timeScale = 0;
+                    // play sound effect
+                    //sfxMixer.audioMixer.Equals(gameOverSFX);
+                    source.Stop();
+                    source.PlayOneShot(gameOverSFX);
                 }
             };
         }
@@ -119,11 +161,6 @@ public class CanvasManager: MonoBehaviour
 #endif
     }
 
-    private void PauseGame()
-    {
-        Time.timeScale = 0;
-    }
-
     private void UnPause()
     {
         Time.timeScale = 1;
@@ -140,12 +177,15 @@ public class CanvasManager: MonoBehaviour
             if (pauseMenu.activeSelf)
             {
                 SetMenus(null, pauseMenu);
+                // Unpause Game
                 Time.timeScale = 1;
                 return;
             }
 
             SetMenus(pauseMenu, null);
-            PauseGame();
+            // Pause Game
+            Time.timeScale = 0;
+            
         }
 
     }
